@@ -1,0 +1,36 @@
+﻿@model FPTBook.Models.Admin
+
+<div class="row container">
+    <div class="col-md-6">
+        <img src="@Model.Image" width="220px" height="240px" style="border: 5px solid  #14ADDE" /><br />
+        <a class="btn btn-primary mt-3" asp-controller="Admin" asp-action="Index">
+            <i class="fa-solid fa-left-long"></i>
+        </a>
+    </div>
+
+    <div class="col-md-6" style="margin-left: -150px" >
+        <table class="table table-info">
+           <tr>
+               <th>Full Name</th>
+               <td>@Model.Name</td>
+           </tr>
+           <tr>
+               <th>Date of Birth</th>
+               <td>@Model.Birthday.ToShortDateString()</td>
+           </tr>
+           <tr>
+                <th>Age</th>
+                <td>@(DateTime.Now.Year - Model.Birthday.Year)</td>
+           </tr>
+           <tr>
+               <th>Email Address</th>
+               <td>@Model.Email</td>
+           </tr>
+           <tr>
+               <th>Address</th>
+               <td>@Model.Address</td>
+           </tr>
+        </table>
+    </div>
+
+</div>

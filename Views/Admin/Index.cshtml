@@ -1,0 +1,35 @@
+﻿@model List<Admin>
+
+<h3 class="container" style="text-align: center; color:   #278FF1  ">List of administrators</h3>
+
+<div class="container col-md-9">
+    <table class="table table-bordered container">
+        <thead class="thead-dark">
+            <tr>
+                <th>No</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var admin in Model)
+            {
+                <tr>
+                    <td>@(Model.IndexOf(admin)+1)</td>
+                    <td>@admin.Name</td>
+                    <td>@admin.Email</td>
+                    <td><a asp-controller="Admin" asp-action="Edit" asp-route-id="@admin.Id" class="btn btn-success">
+                         <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                    <td><a asp-controller="Admin" asp-action="Detail" asp-route-id="@admin.Id" class="btn btn-warning">
+                            <i class="fa-solid fa-address-card"></i>
+                        </a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
